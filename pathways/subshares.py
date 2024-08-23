@@ -240,7 +240,6 @@ def adjust_matrix_based_on_shares(
             for technology in technologies.values():
                 technology["consumer_idx"] = get_nz_col_indices(technology["idx"])
 
-
     for tech_category, regions in shares_dict.items():
         for region, technologies in regions.items():
             for name, tech in technologies.items():
@@ -260,11 +259,13 @@ def adjust_matrix_based_on_shares(
                     for other_supplier, other_supplier_tech in technologies.items():
                         if other_supplier != name:
                             additional_amount = (
-                                    initial_amount
-                                    * subshares[tech_category][year][other_supplier]
-                                    * -1
+                                initial_amount
+                                * subshares[tech_category][year][other_supplier]
+                                * -1
                             )
-                            final_amounts[(other_supplier_tech["idx"], consumer)] += additional_amount
+                            final_amounts[
+                                (other_supplier_tech["idx"], consumer)
+                            ] += additional_amount
 
     # Prepare the list of indices and amounts for the modified technosphere matrix
     list_indices = []
