@@ -1,18 +1,15 @@
-from pathways import Pathways, run_gsa
+from pathways import Pathways
 
 p = Pathways(
     datapackage="remind-SSP2-PkBudg1150-stem-SPS1.zip",
-    geography_mapping="geo_mapping_remind.yaml",
-    # activities_mapping="act_categories_agg.yaml",
+    geography_mapping="geo_mapping_remind_one_location.yaml",
+    activities_mapping="act_categories_agg_one_category.yaml",
 )
 
 vars = [v for v in p.scenarios.coords["variables"].values if v.startswith("FE")]
 
 p.calculate(
-    methods=[
-        "EF v3.1 EN15804 - climate change - global warming potential (GWP100)",
-        "EF v3.1 EN15804 - ecotoxicity: freshwater - comparative toxic unit for ecosystems (CTUe)",
-    ],
+    methods=[m for m in p.lcia_methods if "RELICS" in m and "lithium" in m.lower()],
     regions=["CH"],
     scenarios=p.scenarios.pathway.values.tolist(),
     years=[
@@ -22,8 +19,9 @@ p.calculate(
         2050
     ],
     variables=vars,
-    use_distributions=10,
+    use_distributions=5,
     subshares=True,
+    multiprocessing=False
 )
 
 p.export_results()

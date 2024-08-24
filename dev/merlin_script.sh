@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --cluster=merlin6                  # Cluster name
 #SBATCH --partition=daily                  # Specify one or multiple partitions
-#SBATCH --time=05:00:00                    # Strongly recommended
+#SBATCH --time=20:00:00                    # Strongly recommended
 #SBATCH --hint=nomultithread               # Mandatory for multithreaded jobs
 #SBATCH --job-name=sweet_sure              # Name your job
 #SBATCH --cpus-per-task=4                  # Request one core per task
@@ -13,4 +13,11 @@
 module use unstable
 module load anaconda
 conda activate /data/user/sacchi_r/conda-envs/salib
-srun python /data/user/sacchi_r/python_scripts/sweet_sure.py
+
+years=(2020 2030 2040 2050)
+
+for i in {0..3}
+do
+   srun python /data/user/sacchi_r/python_scripts/sweet_sure_${years[$i]}.py &
+done
+wait

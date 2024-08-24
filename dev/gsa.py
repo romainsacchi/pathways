@@ -50,6 +50,7 @@ def run_GSA_delta(
     results = []
 
     for method in methods:
+        print(method)
         param_values = df_parameters[parameters].values
 
         # total impacts for the method
@@ -92,10 +93,6 @@ def gsa(file):
 
     # load content of "Total impacts" sheet into a pandas DataFrame
     df_sum_impacts = pd.read_excel(file, sheet_name="Total impacts")
-
-    print("len(df_mc_vals)", len(df_mc_vals))
-    print("len(df_technology_shares)", len(df_technology_shares))
-    print("len(df_sum_impacts)", len(df_sum_impacts))
 
     # open Excel workbook
     with pd.ExcelWriter(file, engine="openpyxl", mode="a") as writer:
