@@ -21,7 +21,7 @@ p.calculate(
     variables=vars,
     use_distributions=5,
     subshares=True,
-    multiprocessing=False
+    multiprocessing=False,
 )
 
 p.export_results()

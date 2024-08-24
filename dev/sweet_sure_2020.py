@@ -30,7 +30,9 @@ for scenario in [
         + [m for m in p.lcia_methods if "RELICS" in m],
         regions=["CH"],
         scenarios=p.scenarios.pathway.values.tolist(),
-        years=[2020, ],
+        years=[
+            2020,
+        ],
         variables=[
             v for v in p.scenarios.coords["variables"].values if v.startswith("FE")
         ],

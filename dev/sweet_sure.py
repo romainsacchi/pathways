@@ -15,17 +15,17 @@ for scenario in [
 
     p.calculate(
         methods=[
-            #"EF v3.1 EN15804 - climate change - global warming potential (GWP100)",
-            #"EF v3.1 EN15804 - acidification - accumulated exceedance (AE)",
-            #"EF v3.1 EN15804 - ecotoxicity: freshwater - comparative toxic unit for ecosystems (CTUe)",
-            #"EF v3.1 EN15804 - material resources: metals/minerals - abiotic depletion potential (ADP): elements (ultimate reserves)",
-            #"EF v3.1 EN15804 - eutrophication: freshwater - fraction of nutrients reaching freshwater end compartment (P)",
-            #"EF v3.1 EN15804 - photochemical oxidant formation: human health - tropospheric ozone concentration increase",
-            #"Inventory results and indicators - resources - total freshwater extraction",
-            #"Crustal Scarcity Indicator 2020 - material resources: metals/minerals - crustal scarcity potential (CSP)",
-            #"Inventory results and indicators - resources - total surface occupation",
-            #"Inventory results and indicators - resources - land occupation",
-            #"ReCiPe 2016 v1.03, midpoint (H) - particulate matter formation - particulate matter formation potential (PMFP)",
+            # "EF v3.1 EN15804 - climate change - global warming potential (GWP100)",
+            # "EF v3.1 EN15804 - acidification - accumulated exceedance (AE)",
+            # "EF v3.1 EN15804 - ecotoxicity: freshwater - comparative toxic unit for ecosystems (CTUe)",
+            # "EF v3.1 EN15804 - material resources: metals/minerals - abiotic depletion potential (ADP): elements (ultimate reserves)",
+            # "EF v3.1 EN15804 - eutrophication: freshwater - fraction of nutrients reaching freshwater end compartment (P)",
+            # "EF v3.1 EN15804 - photochemical oxidant formation: human health - tropospheric ozone concentration increase",
+            # "Inventory results and indicators - resources - total freshwater extraction",
+            # "Crustal Scarcity Indicator 2020 - material resources: metals/minerals - crustal scarcity potential (CSP)",
+            # "Inventory results and indicators - resources - total surface occupation",
+            # "Inventory results and indicators - resources - land occupation",
+            # "ReCiPe 2016 v1.03, midpoint (H) - particulate matter formation - particulate matter formation potential (PMFP)",
         ]
         + [m for m in p.lcia_methods if "RELICS" in m],
         regions=["CH"],
