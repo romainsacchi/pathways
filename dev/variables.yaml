@@ -1,1 +1,2 @@
 DIR_CACHED_DB: ./cache
+USER_LOGS_DIR: ./logs
